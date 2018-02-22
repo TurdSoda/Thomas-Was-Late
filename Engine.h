@@ -59,4 +59,7 @@ private:
 	void update(float dtAsSeconds);
 	void draw();
 
+public:
+	Engine();
+	void run();
 };
