@@ -47,10 +47,11 @@ void Engine::run()
 		//Make a decimal fraction from the delta time
 		float dtAsSeconds = dt.asSeconds();
 
-		//call each part of the game loop
-	//	input();
-	//	update(dtAsSeconds);
-	//	draw();
+		
+	//call each part of the game loop
+	input();
+	update(dtAsSeconds);
+	draw();
 
 	}
 
