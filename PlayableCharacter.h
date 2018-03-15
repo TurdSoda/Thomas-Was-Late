@@ -61,10 +61,10 @@ public:
 	FloatRect getPosition();
 
 	//A rectangle representing the position of different body parts
-	FloatRect GetFeet();
-	FloatRect GetHead();
-	FloatRect GetRight();
-	FloatRect GetLeft();
+	FloatRect getFeet();
+	FloatRect getHead();
+	FloatRect getRight();
+	FloatRect getLeft();
 
 	//Get a copy to the sprite
 	Sprite getSprite();

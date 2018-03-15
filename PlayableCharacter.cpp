@@ -109,7 +109,7 @@ Vector2f PlayableCharacter::getCenter()
 {
 
 	return Vector2f(m_Position.x + m_Sprite.getGlobalBounds().width / 2,
-		m_Position.y + m_Sprite.getGlobalBounds().height / 2, );
+		m_Position.y + m_Sprite.getGlobalBounds().height / 2);
 
 }
 
@@ -159,7 +159,7 @@ void PlayableCharacter::stopFalling(float position)
 void PlayableCharacter::stopRight(float position)
 {
 
-	m_Position.y = position - getGlobalBounds().width;
+	m_Position.y = position - m_Sprite.getGlobalBounds().width;
 	m_Sprite.setPosition(m_Position);
 
 
@@ -169,7 +169,7 @@ void PlayableCharacter::stopRight(float position)
 void PlayableCharacter::stopLeft(float position)
 {
 
-	m_Position.y = position - getGlobalBounds().width;
+	m_Position.y = position - m_Sprite.getGlobalBounds().width;
 	m_Sprite.setPosition(m_Position);
 
 }
