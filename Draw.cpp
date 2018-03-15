@@ -36,8 +36,8 @@ void Engine::draw()
 		// Switch to the main view for left
 		m_Window.setView(m_LeftView);
 		//draw Thomas and Bob
-		m_Window.draw(m_Thomas.getSprite());
-		m_Window.draw(m_Bob.getSprite());
+	m_Window.draw(m_Thomas.getSprite());
+	m_Window.draw(m_Bob.getSprite());
 
 		// draw Bob's side of the screen
 		//Switch to the background view
