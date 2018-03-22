@@ -169,3 +169,31 @@ int** LevelManager::nextLevel(VertexArray&rVaLevel)
 	return arrayLevel;
 
 }//end function nextLevel()
+
+Vector2i LevelManager::getLevelSize()
+{
+
+	return m_LevelSize;
+
+}
+
+int LevelManager::getCurrentLevel()
+{
+
+	return m_CurrentLevel;
+
+}
+
+float LevelManager::getTimeLimit()
+{
+
+	return m_BaseTimeLimit*m_TimeModifier;
+
+}
+
+Vector2f LevelManager::getStartPosition()
+{
+
+	return m_startPosition;
+
+}
