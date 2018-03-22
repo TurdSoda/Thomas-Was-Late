@@ -88,7 +88,7 @@ int** LevelManager::nextLevel(VertexArray&rVaLevel)
 
 	}
 
-	//loop through file and store all the valuies in the 2d array
+	//loop through file and store all the values in the 2d array
 	string row;
 	int y = 0;
 	while (inputFile >> row)
@@ -107,5 +107,65 @@ int** LevelManager::nextLevel(VertexArray&rVaLevel)
 	}
 
 	inputFile.close();
+
+	// What type of primative are we using?
+	rVaLevel.setPrimitiveType(Quads);
+
+	//set the ize of the vertex array
+	rVaLevel.resize(m_LevelSize.x*m_LevelSize.y*VERTS_IN_QUAD);
+
+	// Start at the beginning of the vertex array
+	int currentVertex = 0;
+
+	for (int x = 0; x < m_LevelSize.x; ++x)
+	{
+
+		for (int y = 0; y < m_LevelSize.y; ++y)
+		{
+
+			rVaLevel[currentVertex + 0].position = Vector2f
+				(x*TILE_SIZE, 
+				y*TILE_SIZE);
+			
+			rVaLevel[currentVertex + 1].position = Vector2f
+				(x*TILE_SIZE+TILE_SIZE, 
+				y*TILE_SIZE);
+			
+			rVaLevel[currentVertex + 2].position = Vector2f
+				(x*TILE_SIZE+TILE_SIZE, 
+				y*TILE_SIZE+TILE_SIZE);
+			
+			rVaLevel[currentVertex + 3].position = Vector2f
+				(x*TILE_SIZE, 
+				y*TILE_SIZE+TILE_SIZE);
+
+			//which tile from the sprite sheet should we use
+			int vetricalOffset = arrayLevel[y][x] * TILE_SIZE;
+
+			// Set up texture coords
+			rVaLevel[currentVertex + 0].texCoords = Vector2f(
+				0,
+				0 + vetricalOffset);
+			
+			rVaLevel[currentVertex + 1].texCoords = Vector2f(
+				TILE_SIZE,
+				0 + vetricalOffset);
+			
+			rVaLevel[currentVertex + 2].texCoords = Vector2f(
+				TILE_SIZE,
+				TILE_SIZE + vetricalOffset);
+			
+			rVaLevel[currentVertex + 3].texCoords = Vector2f(
+				0,
+				TILE_SIZE + vetricalOffset);
+
+			//update our current vertex so we can draw the next quad
+			currentVertex = currentVertex + VERTS_IN_QUAD;
+
+		}//end y for loop
+
+	}//end x for loop
+
+	return arrayLevel;
 
 }//end function nextLevel()
